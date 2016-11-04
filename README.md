@@ -1,7 +1,7 @@
 # Angular 2 Storyblok demo
 
-This project is a demo app to showcase ng-storyblok, which provides full Storyblok support for Angular 2.
-You can have a look around the source files or visit the demo app directly at: https://thomaspink.github.io/ng-storyblok-demo/
+This project is a demo app to showcase [ng-storyblok](https://github.com/thomaspink/ng-storyblok), which provides full [Storyblok](https://storyblok.com) support for Angular 2.
+You can have a look around the source files or visit the demo app directly at: [thomaspink.github.io/ng-storyblok-demo](https://thomaspink.github.io/ng-storyblok-demo/)
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
