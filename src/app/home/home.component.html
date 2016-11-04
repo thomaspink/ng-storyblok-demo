@@ -1,5 +1,5 @@
 <div *ngIf="isLoading && !isLoadingError" class="centered-spinner"><md-spinner></md-spinner></div>
-
 <h3>{{(story | async)?.headline}}</h3>
-<div>{{(story | async)?.text}}</div>
+<!-- Dirty little hack with *ngIf, because markdown module does not understand observables -->
+<markdown *ngIf="!isLoading && !isLoadingError">{{(story | async)?.text}}</markdown>
 
