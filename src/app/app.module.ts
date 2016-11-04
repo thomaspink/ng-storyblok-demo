@@ -10,12 +10,16 @@ import { MarkdownModule } from 'angular2-markdown';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NewsComponent } from './news/news.component';
+import { TeaserComponent } from './news/teaser/teaser.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NewsComponent,
+    TeaserComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +27,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
+      { path: 'news', component: NewsComponent },
       { path: '**', component: PageNotFoundComponent }
     ]),
     MaterialModule.forRoot(),

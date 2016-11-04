@@ -1,6 +1,9 @@
 <md-sidenav-layout [class.m2app-dark]="isDarkTheme">
   <md-sidenav #sidenav mode="side" class="app-sidenav">
-    Sidenav
+    <md-nav-list>
+      <a md-list-item routerLink="/" routerLinkActive="active">Home</a>
+      <a md-list-item routerLink="/news" routerLinkActive="active">News</a>
+    </md-nav-list>
   </md-sidenav>
   <md-toolbar color="primary">
     <button class="app-icon-button" (click)="sidenav.toggle()">
