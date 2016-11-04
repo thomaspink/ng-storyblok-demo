@@ -1,3 +1,17 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout [class.m2app-dark]="isDarkTheme">
+  <md-sidenav #sidenav mode="side" class="app-sidenav">
+    Sidenav
+  </md-sidenav>
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+    <span>
+    <md-icon class="icon-20">explore</md-icon>
+    Angular 2 Storyblok Demo
+  </span>
+  </md-toolbar>
+  <div class="app-content">
+    <router-outlet></router-outlet>
+  </div>
+</md-sidenav-layout>
