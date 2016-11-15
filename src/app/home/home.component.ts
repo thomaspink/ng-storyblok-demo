@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SBAdapter, SBStory, SBComponent } from 'ng-storyblok';
+import { SBStore, SBStory, SBComponent } from 'ng-storyblok';
 import { Observable } from 'rxjs/observable';
 
 @Component({
@@ -8,16 +8,15 @@ import { Observable } from 'rxjs/observable';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  story: Observable<SBComponent>;
+  story: any;
   isLoading = true;
   isLoadingError = false;
 
-  constructor(private _sb: SBAdapter) {
-    this.story = this._sb.loadStoryBySlug('home').map((data: SBStory) => data.content.data);
+  constructor(private _sb: SBStore) {
+    this.story = this._sb.story('home').map((data: SBStory) => data.content.model);
     this.story.subscribe(
-      _ => this.isLoadingError = false,
-      error => this.isLoadingError = true,
-      () => this.isLoading = false
+      _ => { this.isLoading = false; this.isLoadingError = false },
+      error => { this.isLoading = false; this.isLoadingError = true }
     );
   }
 

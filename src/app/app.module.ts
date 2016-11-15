@@ -5,13 +5,13 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import { SbModule } from 'ng-storyblok';
-import { MarkdownModule } from 'angular2-markdown';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NewsComponent } from './news/news.component';
 import { TeaserComponent } from './news/teaser/teaser.component';
+import { MarkdownPipe } from './markdown.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { TeaserComponent } from './news/teaser/teaser.component';
     HomeComponent,
     PageNotFoundComponent,
     NewsComponent,
-    TeaserComponent
+    TeaserComponent,
+    MarkdownPipe
   ],
   imports: [
     BrowserModule,
@@ -33,8 +34,7 @@ import { TeaserComponent } from './news/teaser/teaser.component';
     MaterialModule.forRoot(),
     SbModule.forRoot({
       accessToken: 'TI4mZJKY6rPnyrOQS6u3bAtt'
-    }),
-    MarkdownModule
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
