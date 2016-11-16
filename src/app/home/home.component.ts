@@ -8,16 +8,19 @@ import { Observable } from 'rxjs/observable';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  story: any;
+  components: SBComponent[] = [];
   isLoading = true;
   isLoadingError = false;
 
   constructor(private _sb: SBStore) {
-    this.story = this._sb.story('home').map((data: SBStory) => data.content.model);
-    this.story.subscribe(
-      _ => { this.isLoading = false; this.isLoadingError = false },
-      error => { this.isLoading = false; this.isLoadingError = true }
-    );
+    this._sb.story('home').map((data: SBStory) => <SBComponent[]>data.content.model.components).subscribe(cl => {
+      this.components = cl;
+      this.isLoading = false;
+      this.isLoadingError = false;
+    }, error => {
+      this.isLoading = false;
+      this.isLoadingError = true;
+    });
   }
 
 }

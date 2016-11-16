@@ -1,0 +1,6 @@
+<h3>{{headline}}</h3>
+  <!--
+    Really dirty hack, because angular2 does not support raw output in pipes (markdown)
+    http://stackoverflow.com/questions/35999185/angular2-pipes-output-raw-html
+  -->
+  <p [innerHtml]="text | markdown"></p>

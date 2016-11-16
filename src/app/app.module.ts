@@ -12,6 +12,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { NewsComponent } from './news/news.component';
 import { TeaserComponent } from './news/teaser/teaser.component';
 import { MarkdownPipe } from './markdown.pipe';
+import { PageIntroComponent } from './components/page-intro/page-intro.component';
+import { NewsListComponent } from './components/news-list/news-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { MarkdownPipe } from './markdown.pipe';
     PageNotFoundComponent,
     NewsComponent,
     TeaserComponent,
-    MarkdownPipe
+    MarkdownPipe,
+    PageIntroComponent,
+    NewsListComponent
   ],
   imports: [
     BrowserModule,
@@ -33,10 +37,15 @@ import { MarkdownPipe } from './markdown.pipe';
     ]),
     MaterialModule.forRoot(),
     SbModule.forRoot({
-      accessToken: 'TI4mZJKY6rPnyrOQS6u3bAtt'
+      accessToken: 'TI4mZJKY6rPnyrOQS6u3bAtt',
+      map: {
+        'intro': PageIntroComponent,
+        'NewsList': NewsListComponent
+      }
     })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PageIntroComponent, NewsListComponent]
 })
 export class AppModule { }

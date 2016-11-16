@@ -8,19 +8,20 @@ import { Observable } from 'rxjs/observable';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent {
-  story: any;
-  news: any;
+  components: any;
   isLoading = true;
   isLoadingError = false;
 
-  constructor(private _sb: SBStore ) {;
-    this.story = this._sb.story('news').map((data: SBStory) => data.content.model);
-    this.story.subscribe(
-      _ => { this.isLoading = false; this.isLoadingError = false },
-      error => { this.isLoading = false; this.isLoadingError = true }
-    );
-
-    this.news =  this._sb.collection('archive');
+  constructor(private _sb: SBStore) {
+    this._sb.story('news').map((data: SBStory) => <SBComponent[]>data.content.model.components).subscribe(cl => {
+      this.components = cl;
+      this.isLoading = false;
+      this.isLoadingError = false;
+    }, error => {
+      this.isLoading = false;
+      this.isLoadingError = true;
+    });
+    // this.news =  this._sb.collection('archive');
   }
 
 }
