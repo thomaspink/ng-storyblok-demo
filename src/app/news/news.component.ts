@@ -9,15 +9,18 @@ import { Observable } from 'rxjs/observable';
 })
 export class NewsComponent {
   story: any;
+  news: any;
   isLoading = true;
   isLoadingError = false;
 
-  constructor(private _sb: SBStore) {;
+  constructor(private _sb: SBStore ) {;
     this.story = this._sb.story('news').map((data: SBStory) => data.content.model);
     this.story.subscribe(
       _ => { this.isLoading = false; this.isLoadingError = false },
       error => { this.isLoading = false; this.isLoadingError = true }
     );
+
+    this.news =  this._sb.collection('archive');
   }
 
 }

@@ -8,12 +8,9 @@
   <p [innerHtml]="(story | async )?.text | markdown"></p>
 </div>
 
-<md-card>
-   <md-card-subtitle>Subtitle first</md-card-subtitle>
-   <md-card-title>Card with title</md-card-title>
+<md-card *ngFor="let item of news | async">
+   <md-card-title>{{item.content.model.headline}}</md-card-title>
    <md-card-content>
-        <p>This is supporting text.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad</p>
+        <p [innerHtml]="item.content.model.text | markdown"></p>
    </md-card-content>
 </md-card>
