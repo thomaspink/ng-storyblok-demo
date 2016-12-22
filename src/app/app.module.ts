@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
-import { SbModule } from 'ng-storyblok';
+import { SBModule } from 'ng-storyblok';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -14,6 +14,16 @@ import { TeaserComponent } from './news/teaser/teaser.component';
 import { MarkdownPipe } from './markdown.pipe';
 import { PageIntroComponent } from './components/page-intro/page-intro.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
+
+export function storyblockConfigFactory() {
+  return {
+    accessToken: 'TI4mZJKY6rPnyrOQS6u3bAtt',
+    map: {
+      'intro': PageIntroComponent,
+      'NewsList': NewsListComponent
+    }
+  };
+}
 
 @NgModule({
   declarations: [
@@ -36,13 +46,7 @@ import { NewsListComponent } from './components/news-list/news-list.component';
       { path: '**', component: PageNotFoundComponent }
     ]),
     MaterialModule.forRoot(),
-    SbModule.forRoot({
-      accessToken: 'TI4mZJKY6rPnyrOQS6u3bAtt',
-      map: {
-        'intro': PageIntroComponent,
-        'NewsList': NewsListComponent
-      }
-    })
+    SBModule.forRoot(storyblockConfigFactory)
   ],
   providers: [],
   bootstrap: [AppComponent],
