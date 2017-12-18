@@ -1,6 +1,6 @@
-<md-card *ngFor="let item of news | async">
-   <md-card-title>{{item.content.model.headline}}</md-card-title>
-   <md-card-content>
+<mat-card *ngFor="let item of news | async">
+   <mat-card-title>{{item.content.model.headline}}</mat-card-title>
+   <mat-card-content>
         <p [innerHtml]="item.content.model.text | markdown"></p>
-   </md-card-content>
-</md-card>
+   </mat-card-content>
+</mat-card>

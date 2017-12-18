@@ -8,13 +8,13 @@ import { SBStore } from 'ng-storyblok';
 })
 export class NewsListComponent implements OnInit {
 
-  @Input('path') private path: string = '';
-  private news: any;
+  @Input('path') private path = '';
+  news: any;
 
   constructor(private _store: SBStore ) { }
 
   ngOnInit() {
-    this.news = this._store.collection(this.path)
+    this.news = this._store.collection(this.path);
   }
 
 }

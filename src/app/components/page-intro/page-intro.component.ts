@@ -8,6 +8,6 @@ import { Component, Input, ChangeDetectionStrategy} from '@angular/core';
 })
 export class PageIntroComponent {
 
-  @Input('headline') private headline = '';
-  @Input('text') private text = '';
+  @Input('headline') headline = '';
+  @Input('text') text = '';
 }
