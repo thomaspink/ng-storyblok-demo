@@ -3,7 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '@angular/material';
+import {
+  MatProgressSpinnerModule,
+  MatCardModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MatListModule,
+  MatIconModule
+} from '@angular/material';
 import { SBModule } from 'ng-storyblok';
 
 import { AppComponent } from './app.component';
@@ -45,7 +52,12 @@ export function storyblockConfigFactory() {
       { path: 'news', component: NewsComponent },
       { path: '**', component: PageNotFoundComponent }
     ]),
-    MaterialModule.forRoot(),
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule,
     SBModule.forRoot(storyblockConfigFactory)
   ],
   providers: [],
